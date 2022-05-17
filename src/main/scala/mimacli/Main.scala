@@ -1,5 +1,6 @@
 package mimacli
 
+import com.typesafe.tools.mima.core.{AbstractMethodProblem, MemberProblem, TemplateProblem}
 import com.typesafe.tools.mima.lib.MiMaLib
 
 import java.io.File
@@ -16,9 +17,16 @@ case class Main(
     val newBin = newBinOpt.getOrElse(throw new IllegalArgumentException("New binary was not specified"))
     // TODO: should have some machine-readable output here, as an option
     new MiMaLib(classpath).collectProblems(oldBin, newBin, Nil).foreach {
-      problem => println(problem.description("new"))
+      case problem: TemplateProblem       => println(formatProblem(problem))
+      case problem: MemberProblem         => println(formatProblem(problem))
     }
   }
+
+  private def formatProblem(problem: TemplateProblem): String =
+    s"${problem.ref.fullName}: ${problem.description("new")}"
+
+  private def formatProblem(problem: MemberProblem): String =
+    s"${problem.ref.fullName}: ${problem.description("new")}"
 
 }
 
