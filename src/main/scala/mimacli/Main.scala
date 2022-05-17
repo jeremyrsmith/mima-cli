@@ -13,7 +13,7 @@ case class Main(
 
   def run(): Unit = {
     val oldBin = oldBinOpt.getOrElse(throw new IllegalArgumentException("Old binary was not specified"))
-    val newBin = newBinOpt.getOrElse(throw new IllegalArgumentException(""))
+    val newBin = newBinOpt.getOrElse(throw new IllegalArgumentException("New binary was not specified"))
     // TODO: should have some machine-readable output here, as an option
     new MiMaLib(classpath).collectProblems(oldBin, newBin, Nil).foreach {
       problem => println(problem.description("new"))
