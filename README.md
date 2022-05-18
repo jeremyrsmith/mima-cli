@@ -7,11 +7,32 @@ It is neither endorsed nor supported by Lightbend. All it does is invoke MiMa.
 
 ## Usage
 
-`mima [-cp classpath] oldfile newfile`
+```
+mima [OPTIONS] oldfile newfile
 
-- `classpath`: Java classpath to consider, usually separated by `:` (this isn't usually needed)
-- `oldfile`: Old (or, previous) file – a JAR or a directory containing classfiles
-- `newfile`: New (or, current) file - a JAR or a directory containing classfiles
+  oldfile: Old (or, previous) files – a JAR or a directory containing classfiles
+  newfile: New (or, current) files - a JAR or a directory containing classfiles
+  
+Options:
+  -cp CLASSPATH:
+     Specify Java classpath, separated by '${File.pathSeparatorChar}'
+     
+  -v, --verbose:
+     Show a human-readable description of each problem
+     
+  -f, --forward-only:
+    Show only forward-binary-compatibility problems
+    
+  -b, --backward-only:
+    Show only backward-binary-compatibility problems
+    
+  -g, --include-generics:
+    Include generic signature problems, which may not directly cause bincompat
+    problems and are hidden by default. Has no effect if using --forward-only.
+    
+  -j, --bytecode-names:
+    Show bytecode names of fields and methods, rather than human-readable names
+```
 
 ## License
 
