@@ -1,6 +1,6 @@
 organization := "io.github.jeremyrsmith"
 name := "mima-cli"
-version := "0.1.0"
+version := "0.1.1"
 scalaVersion := "2.13.8"
 publishTo := sonatypePublishToBundle.value
 licenses := Seq("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0"))
@@ -19,7 +19,7 @@ pomExtra := {
 }
 
 libraryDependencies ++= Seq(
-  "com.typesafe" %% "mima-core" % "1.1.0"
+  "com.typesafe" %% "mima-core" % "1.1.4"
 )
 
 scalacOptions ++= Seq(
