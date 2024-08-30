@@ -11,7 +11,12 @@ Each GitHub release has an assembly JAR attached to it, which should be directly
 it `mima-cli` and put it somewhere in your `PATH`.
 
 Alternatively, it's also released to Maven Central, so you can probably use [Coursier's `bootstrap` command](https://get-coursier.io/docs/cli-bootstrap)
-instead.
+instead:
+
+```bash
+cs boostrap io.github.jeremyrsmith::mima-cli:0.1.0 -o mima
+./mima
+```
 
 ## Usage
 
