@@ -14,7 +14,7 @@ Alternatively, it's also released to Maven Central, so you can probably use [Cou
 instead:
 
 ```bash
-cs boostrap io.github.jeremyrsmith::mima-cli:0.1.0 -o mima
+cs bootstrap io.github.jeremyrsmith::mima-cli:0.1.0 -o mima
 ./mima
 ```
 
